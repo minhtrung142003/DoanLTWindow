@@ -82,6 +82,18 @@
     <Compile Include="Bai07.Designer.cs">
       <DependentUpon>Bai07.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bai08.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bai08.Designer.cs">
+      <DependentUpon>Bai08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bai09.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bai09.Designer.cs">
+      <DependentUpon>Bai09.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dangnhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bai07.resx">
       <DependentUpon>Bai07.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bai08.resx">
+      <DependentUpon>Bai08.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dangnhap.resx">
       <DependentUpon>Dangnhap.cs</DependentUpon>

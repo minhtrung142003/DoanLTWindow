@@ -38,16 +38,13 @@
             this.Xoa = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.ckGender = new System.Windows.Forms.CheckBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.txtId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtHoten = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtTuoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Out = new System.Windows.Forms.Button();
-            this.btFile = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.btFile = new System.Windows.Forms.Button();
             this.Reset = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.btFile)).BeginInit();
+            this.dgvEmployee = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -83,7 +80,7 @@
             this.tbId.Name = "tbId";
             this.tbId.Size = new System.Drawing.Size(191, 22);
             this.tbId.TabIndex = 44;
-            this.tbId.TextChanged += new System.EventHandler(this.tbId_TextChanged);
+            this.tbId.TextChanged += new System.EventHandler(this.tbId_TextChanged_1);
             // 
             // tbName
             // 
@@ -98,7 +95,7 @@
             this.tbAge.Name = "tbAge";
             this.tbAge.Size = new System.Drawing.Size(191, 22);
             this.tbAge.TabIndex = 46;
-            this.tbAge.TextChanged += new System.EventHandler(this.tbAge_TextChanged);
+            this.tbAge.TextChanged += new System.EventHandler(this.tbAge_TextChanged_1);
             // 
             // Them
             // 
@@ -131,7 +128,7 @@
             this.Edit.TabIndex = 49;
             this.Edit.Text = "Sửa";
             this.Edit.UseVisualStyleBackColor = true;
-            this.Edit.Click += new System.EventHandler(this.button2_Click);
+            this.Edit.Click += new System.EventHandler(this.Edit_Click_1);
             // 
             // ckGender
             // 
@@ -144,38 +141,6 @@
             this.ckGender.UseVisualStyleBackColor = true;
             this.ckGender.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.txtId,
-            this.txtHoten,
-            this.txtTuoi,
-            this.columnHeader1});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(49, 57);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(528, 222);
-            this.listView1.TabIndex = 53;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // txtId
-            // 
-            this.txtId.Text = "Mã";
-            // 
-            // txtHoten
-            // 
-            this.txtHoten.Text = "Hoten";
-            // 
-            // txtTuoi
-            // 
-            this.txtTuoi.Text = "Tuoi";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Giới tính";
-            // 
             // Out
             // 
             this.Out.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
@@ -185,26 +150,27 @@
             this.Out.TabIndex = 54;
             this.Out.Text = "Thoát";
             this.Out.UseVisualStyleBackColor = true;
-            this.Out.Click += new System.EventHandler(this.Out_Click);
+            this.Out.Click += new System.EventHandler(this.Out_Click_1);
+            // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(641, 57);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(122, 152);
+            this.pbImage.TabIndex = 56;
+            this.pbImage.TabStop = false;
+            this.pbImage.Click += new System.EventHandler(this.pbImage_Click);
             // 
             // btFile
             // 
-            this.btFile.Location = new System.Drawing.Point(641, 57);
+            this.btFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
+            this.btFile.Location = new System.Drawing.Point(652, 215);
             this.btFile.Name = "btFile";
-            this.btFile.Size = new System.Drawing.Size(122, 152);
-            this.btFile.TabIndex = 56;
-            this.btFile.TabStop = false;
-            this.btFile.Click += new System.EventHandler(this.btFile_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F);
-            this.button1.Location = new System.Drawing.Point(652, 215);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 40);
-            this.button1.TabIndex = 57;
-            this.button1.Text = "Thêm ảnh";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btFile.Size = new System.Drawing.Size(101, 40);
+            this.btFile.TabIndex = 57;
+            this.btFile.Text = "Thêm ảnh";
+            this.btFile.UseVisualStyleBackColor = true;
+            this.btFile.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Reset
             // 
@@ -217,16 +183,27 @@
             this.Reset.UseVisualStyleBackColor = true;
             this.Reset.Click += new System.EventHandler(this.Reset_Click_1);
             // 
+            // dgvEmployee
+            // 
+            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployee.Location = new System.Drawing.Point(7, 12);
+            this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.RowHeadersWidth = 51;
+            this.dgvEmployee.RowTemplate.Height = 24;
+            this.dgvEmployee.Size = new System.Drawing.Size(628, 245);
+            this.dgvEmployee.TabIndex = 59;
+            this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick_1);
+            // 
             // Bai07
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvEmployee);
             this.Controls.Add(this.Reset);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btFile);
+            this.Controls.Add(this.pbImage);
             this.Controls.Add(this.Out);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.ckGender);
             this.Controls.Add(this.Edit);
             this.Controls.Add(this.Xoa);
@@ -240,7 +217,8 @@
             this.Name = "Bai07";
             this.Text = "Bai07";
             this.Load += new System.EventHandler(this.Bai07_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btFile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,14 +235,10 @@
         private System.Windows.Forms.Button Xoa;
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.CheckBox ckGender;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader txtId;
-        private System.Windows.Forms.ColumnHeader txtHoten;
-        private System.Windows.Forms.ColumnHeader txtTuoi;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button Out;
-        private System.Windows.Forms.PictureBox btFile;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Button btFile;
         private System.Windows.Forms.Button Reset;
+        private System.Windows.Forms.DataGridView dgvEmployee;
     }
 }

@@ -16,7 +16,7 @@ namespace Test
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
+
 
         private void tbYear_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -45,7 +45,6 @@ namespace Test
         {
 
         }
-=======
->>>>>>> 1f957d5f7e24504337d51bcd3c494ea9254b8579
+
     }
 }

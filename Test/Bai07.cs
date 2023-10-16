@@ -85,24 +85,34 @@ namespace Test
            */
         private void Them_Click(object sender, EventArgs e)
         {
+           
             if (IsDuplicateID(tbId.Text))
             {
                 MessageBox.Show("ID đã tồn tại. Vui lòng nhập ID khác.");
                 return;
             }
-           
-            themmoi.Employee em = new themmoi.Employee
+            if (pbImage.Image != null)
             {
+                themmoi.Employee em = new themmoi.Employee
+                {
+                    Id = tbId.Text,
+                    Name = tbName.Text,
+                    Age = int.Parse(tbAge.Text),
+                    Gender = ckGender.Checked,
+                    Image = pbImage.Image,
 
-                Id = tbId.Text,
-                Name = tbName.Text,
-                Age = int.Parse(tbAge.Text),
-                Gender = ckGender.Checked,
-                Image = pbImage.Image,
+                };
 
-            };
-            lstEmp.Add(em);
-            bs.ResetBindings(false);
+                lstEmp.Add(em);
+                bs.ResetBindings(false);
+            }
+            else
+            {
+                // Handle the case where the PictureBox doesn't have an image.
+                MessageBox.Show("Please select a valid image first.");
+                return;
+            }
+            
         }
 
         private void Xoa_Click(object sender, EventArgs e)
@@ -120,14 +130,13 @@ namespace Test
         }
         private void dgvEmployee_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-             if (e.RowIndex >= 0 && e.RowIndex < lstEmp.Count)
-            {
-                tbId.Text = lstEmp[e.RowIndex].Id;
-                tbName.Text = lstEmp[e.RowIndex].Name;
-                tbAge.Text = lstEmp[e.RowIndex].Age.ToString();
-                ckGender.Checked = lstEmp[e.RowIndex].Gender;
-                pbImage.Image = lstEmp[e.RowIndex].Image;
-            }
+            int idx = e.RowIndex;
+            tbId.Text = dgvEmployee.Rows[idx].Cells["Id"].Value.ToString();
+            tbName.Text = dgvEmployee.Rows[idx].Cells["Name"].Value.ToString();
+            tbName.Text = dgvEmployee.Rows[idx].Cells["Age"].Value.ToString();
+            ckGender.Checked = bool.Parse(dgvEmployee.Rows[idx].Cells["Gender"].Value.ToString());
+
+            pbImage.Image = (Image)dgvEmployee.Rows[idx].Cells["Image"].Value;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -144,11 +153,11 @@ namespace Test
 
         private void Edit_Click_1(object sender, EventArgs e)
         {
-            if (dgvEmployee.SelectedRows.Count > 0)
+                if (dgvEmployee.SelectedRows.Count > 0 )
             {
                 DataGridViewRow selectedRow = dgvEmployee.SelectedRows[0];
-
-                selectedRow.Cells["Id"].Value = tbId.Text;
+                
+                //selectedRow.Cells["Id"].Value = tbId.Text;
                 selectedRow.Cells["Name"].Value = tbName.Text;
                 selectedRow.Cells["Age"].Value = tbAge.Text;
                 selectedRow.Cells["Gender"].Value = ckGender.Checked;
@@ -190,6 +199,17 @@ namespace Test
                 // Đặt focus vào ô tên
                 tbAge.Focus();
             }
+        }   
+
+        private void dgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int idx = e.RowIndex;
+            tbId.Text = dgvEmployee.Rows[idx].Cells["Id"].Value.ToString();
+            tbName.Text = dgvEmployee.Rows[idx].Cells["Name"].Value.ToString();
+            tbAge.Text = dgvEmployee.Rows[idx].Cells["Age"].Value.ToString();
+            ckGender.Checked = bool.Parse(dgvEmployee.Rows[idx].Cells["Gender"].Value.ToString());
+
+            pbImage.Image = (Image)dgvEmployee.Rows[idx].Cells["Image"].Value;
         }
     }
 }
